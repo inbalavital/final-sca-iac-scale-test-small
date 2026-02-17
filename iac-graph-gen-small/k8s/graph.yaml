@@ -1,0 +1,114 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-1
+spec:
+  selector:
+    matchLabels:
+      app: app-1
+  template:
+    metadata:
+      labels:
+        app: app-1
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-1-5
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: app-5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-2
+spec:
+  selector:
+    matchLabels:
+      app: app-2
+  template:
+    metadata:
+      labels:
+        app: app-2
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-2-5
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: app-5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-3
+spec:
+  selector:
+    matchLabels:
+      app: app-3
+  template:
+    metadata:
+      labels:
+        app: app-3
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-4
+spec:
+  selector:
+    matchLabels:
+      app: app-4
+  template:
+    metadata:
+      labels:
+        app: app-4
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-4-2
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: app-2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-5
+spec:
+  selector:
+    matchLabels:
+      app: app-5
+  template:
+    metadata:
+      labels:
+        app: app-5
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
